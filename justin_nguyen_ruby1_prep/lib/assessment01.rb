@@ -123,7 +123,7 @@ class Array
   def self.merge(left, right, &prc)
     prc ||= Proc.new {|a, b| a <=> b}
     merged = []
-    unless left.empty? || right.empty?
+    until left.empty? || right.empty?
       if prc.call(left.first, right.first) == 1
         merged << right.shift
       else
