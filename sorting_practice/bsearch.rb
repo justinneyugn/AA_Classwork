@@ -1,19 +1,16 @@
-class Array
-    def bsearch(target)
-        return nil if self.empty?
-        middle = self.length / 2
-        
-        if self[middle] > target
-            self[0...middle].bsearch(target)
-        elsif self[middle] == target
-            return middle
-        else
-            checked_right = self[middle+1..-1].bsearch(target)
-            return checked_right + middle + 1 unless checked_right == nil
-        end
-    end
+def bsearch(array, target)
+    return nil if array.empty?
 
+    middle = array.length / 2
+    if array[middle] > target
+        bsearch(array[0...middle], target)
+    elsif array[middle] == target
+        return middle
+    else
+        check_right = bsearch(array[middle+1..-1], target)
+        return check_right + middle + 1 if check_right != nil
+    end
 end
 
 a = [1, 2, 3, 4, 5]
-p a.bsearch(8)
+p bsearch(a, 8)
