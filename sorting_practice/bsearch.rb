@@ -8,10 +8,10 @@ class Array
             return middle
         else
             check_right = self[middle+1..-1].bsearch(target)
-            return check_right + middle + 1 unless check_right.nil?
+            return check_right + middle + 1 unless check_right == nil
         end
     end
 end
 
 a = [1, 2, 3, 4, 5]
-p a.bsearch(4)
+p a.bsearch(8)
