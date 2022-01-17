@@ -26,7 +26,6 @@ end
 # Define a method `primes(num)` that returns an array of the first "num" primes.
 # You may wish to use an `is_prime?` helper method.
 def primes(num)
-  return [] if num == 0
   arr = []
   i = 2
   while arr.length < num
@@ -39,7 +38,7 @@ end
 def is_prime?(num)
   return false if num < 2
   (2...num).each { |factor| return false if num % factor == 0}
-  true
+  return true
 end
 
 # Write a recursive method that returns the first "num" factorial numbers.
@@ -47,8 +46,9 @@ end
 # is 1!, the 3rd factorial is 2!, etc.
 def factorials_rec(num)
   return [1] if num == 1
-  return [1, 1] if num == 2
-  factorials_rec(num-1) << ((num-1)*factorials_rec(num-1)[-1])
+  return [1,1] if num == 2
+  previous = factorials_rec(num-1)
+  previous << ((num-1) * previous[-1])
 end
 
 
@@ -73,18 +73,18 @@ class String
   # Only include substrings of length > 1.
 
   def symmetric_substrings
-    sub = []
     str = self.split("")
+    sub = []
     sym = []
     str.each_with_index do |letter1, i|
       str.each_with_index do |letter2, j|
         sub << str[i..j].join if j > i
       end
     end
-
     sub.each do |substring|
       sym << substring if substring == substring.reverse && substring.length > 1
     end
+
     sym
   end
 end
@@ -98,9 +98,9 @@ class Array
   def merge_sort(&prc)
     prc ||= Proc.new {|a,b| a <=> b}
     return self if self.length < 2
-    middle = self.length / 2
-    left = self.take(middle)
-    right = self.drop(middle)
+    pivot = self.length / 2
+    left = self.take(pivot)
+    right = self.drop(pivot)
     sorted_left = left.merge_sort(&prc)
     sorted_right = right.merge_sort(&prc)
     Array.merge(sorted_left, sorted_right, &prc)
@@ -110,7 +110,7 @@ class Array
   def self.merge(left, right, &prc)
     merged_arr = []
     until left.empty? || right.empty?
-      if prc.call(left.first, right.first, &prc) == -1
+      if prc.call(left.first, right.first) == -1
         merged_arr << left.shift
       else
         merged_arr << right.shift
