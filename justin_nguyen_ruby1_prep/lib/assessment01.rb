@@ -6,49 +6,40 @@ class Array
   # implementation.**
 
   def my_inject(accumulator = nil, &prc)
-      counter = 0
-      # debugger
-
-      if accumulator == nil
-        accumulator = self[0]
-        (1...self.length).each do |i|
-          counter = prc.call(accumulator, self[i])
-          accumulator = counter
-        end
-      else
-        (0...self.length).each do |i|
-          counter = prc.call(accumulator, self[i])
-          accumulator = counter
-        end
+    counter = 0
+    if accumulator == nil
+      accumulator = self[0]
+      (1...self.length).each do |i|
+        counter = prc.call(accumulator, self[i])
+        accumulator = counter
       end
-
-      accumulator
+    else
+      (0...self.length).each do |i|
+        counter = prc.call(accumulator, self[i])
+        accumulator = counter
+      end
+    end
+    accumulator
   end
 end
-
-# p [1, 2, 3].my_inject(1) { |acc, x| acc + x }
 
 # Define a method `primes(num)` that returns an array of the first "num" primes.
 # You may wish to use an `is_prime?` helper method.
-
-def is_prime?(num)
-  return false if num < 2
-
-  (2...num).each { |factor| return false if num % factor == 0 }
-
-  true
-end
-
 def primes(num)
   return [] if num == 0
   arr = []
-  test = 2
+  i = 2
   while arr.length < num
-    arr << test if is_prime?(test)
-    test += 1
+    arr << i if is_prime?(i)
+    i += 1
   end
-
   arr
+end
+
+def is_prime?(num)
+  return false if num < 2
+  (2...num).each { |factor| return false if num % factor == 0}
+  true
 end
 
 # Write a recursive method that returns the first "num" factorial numbers.
@@ -57,8 +48,7 @@ end
 def factorials_rec(num)
   return [1] if num == 1
   return [1, 1] if num == 2
-  previous = factorials_rec(num-1)
-  previous << (num - 1) * previous[-1]
+  factorials_rec(num-1) << ((num-1)*factorials_rec(num-1)[-1])
 end
 
 
@@ -70,9 +60,8 @@ class Array
 
   def dups
     hsh = Hash.new {|h,k| h[k] = []}
-
-    self.each_with_index do |ele, i|
-      hsh[ele] << i if self.count(ele) > 1
+    self.each_with_index do |num, i|
+      hsh[num] << i if self.count(num) > 1
     end
     hsh
   end
@@ -84,18 +73,17 @@ class String
   # Only include substrings of length > 1.
 
   def symmetric_substrings
-    self_arr = self.split("")
     sub = []
+    str = self.split("")
     sym = []
-    self_arr.each.with_index do |first, i|
-      self_arr.each.with_index do |second, j|
-        if j >= i
-          sub << self_arr[i..j].join
-        end
+    str.each_with_index do |letter1, i|
+      str.each_with_index do |letter2, j|
+        sub << str[i..j].join if j > i
       end
     end
-    sub.each do |ele|
-      sym << ele if ele.length > 1 && ele == ele.reverse
+
+    sub.each do |substring|
+      sym << substring if substring == substring.reverse && substring.length > 1
     end
     sym
   end
@@ -108,12 +96,11 @@ class Array
   # implementation.**
   
   def merge_sort(&prc)
-    # debugger
-    return self if self.length <= 1
-    prc ||= Proc.new { |a, b| a <=> b }
-    mid = self.length/2
-    left = self[0...mid]
-    right = self[mid..-1]
+    prc ||= Proc.new {|a,b| a <=> b}
+    return self if self.length < 2
+    middle = self.length / 2
+    left = self.take(middle)
+    right = self.drop(middle)
     sorted_left = left.merge_sort(&prc)
     sorted_right = right.merge_sort(&prc)
     Array.merge(sorted_left, sorted_right, &prc)
@@ -121,18 +108,16 @@ class Array
 
   private
   def self.merge(left, right, &prc)
-    prc ||= Proc.new {|a, b| a <=> b}
-    merged = []
+    merged_arr = []
     until left.empty? || right.empty?
-      if prc.call(left.first, right.first) == 1
-        merged << right.shift
+      if prc.call(left.first, right.first, &prc) == -1
+        merged_arr << left.shift
       else
-        merged << left.shift
+        merged_arr << right.shift
       end
     end
-    merged + left + right
+    merged_arr + left + right
   end
-  
 end
 
 
