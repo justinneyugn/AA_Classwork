@@ -1,17 +1,17 @@
 class Array
     def bsearch(target)
         return nil if self.empty?
-        middle = self.length / 2
-        if self[middle] > target
-            self[0...middle].bsearch(target)
-        elsif self[middle] == target
-            return middle
+        pivot = self.length / 2
+        if self[pivot] > target
+            self[0...pivot].bsearch(target)
+        elsif self[pivot] == target
+            return pivot
         else
-            check_right = self[middle+1..-1].bsearch(target)
-            return check_right + middle + 1 unless check_right == nil
+            check_right = self[pivot + 1..-1].bsearch(target)
+            check_right + pivot + 1 unless check_right == nil
         end
     end
 end
 
 a = [1, 2, 3, 4, 5]
-p a.bsearch(8)
+p a.bsearch(4)

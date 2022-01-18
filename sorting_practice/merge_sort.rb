@@ -1,8 +1,8 @@
 class Array
     def merge_sort(&prc)
-        prc ||= Proc.new { |a,b| a <=> b}
+        prc ||= Proc.new {|a,b| a <=> b}
         return self if self.length < 2
-        pivot = self.length / 2
+        pivot = self.length/2
         left = self.take(pivot)
         right = self.drop(pivot)
         sorted_left = left.merge_sort(&prc)
