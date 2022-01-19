@@ -25,19 +25,41 @@ class Manager < Employee
         # debugger
         super
         @employees = []
-        if @boss != nil
-            @boss.employees << self
-        end
+        # if @boss != nil
+        #     @boss.employees << self
+        # end
     end
 
     def bonus(multiplier)
-        # debugger
+        #BFS method
+
         total_salary = 0
-        @employees.each do |employee|
-            total_salary += employee.salary
+
+        queue = [ @employees[0] ]
+
+        until queue.empty?
+            ele = queue.shift
+            total_salary += ele.salary
+
+            if ele.salary >= 78000
+                ele.employees.each do |employee|
+                    queue << employee
+                end
+            end
         end
+
         total_salary * multiplier
     end
+        # debugger
+        # total_salary = 0
+        # @employees.each do |employee|
+        #     total_salary += employee.salary
+        #     if !employee.employees.empty?
+                
+        # end
+        # total_salary * multiplier
+
+    # end
 end
 
 
