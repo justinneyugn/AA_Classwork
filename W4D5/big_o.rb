@@ -1,4 +1,5 @@
 require "byebug"
+
 # This is O(n**2)
 def my_min1(array)
   array.each_with_index do |num1, i|
@@ -40,35 +41,29 @@ def largest_contiguous_subsum1(list)
 end
 
 def largest_contiguous_subsum2(list)
-  debugger
-  curr_max = max_so_far = list[0]
-  list.each_with_index do |ele, i|
-    if list[0..i].sum > curr_max
-      curr_max =  list[0..i].sum
-    elsif list[i..-1].sum > curr_max
-      curr_max = list[i..-1].sum
-    elsif list[i] > curr_max
-      curr_max = list[i]
-    end
+  return list.max if list.max < 0
+
+  curr_max = max_so_far = 0
+  list.each do |num|
+    curr_max += num
+    curr_max = 0 if curr_max < 0
     max_so_far = curr_max if curr_max > max_so_far
   end
-  curr_max
-  # arr = []
-  # (0..list.length).each do |i|
-  #   arr = arr + list.combination(i).to_a
-  # end
-  # p arr
-  # large = arr.first.sum
-  # arr.each { |subarray| large = subarray.sum if subarray.sum > large }
-  # large
+  max_so_far
 end
 
 
-list = [-5, -1, -3]
-p largest_contiguous_subsum2(list) # => -1
+# list = [-5, -1, -3]
+# p largest_contiguous_subsum2(list) # => -1
 
 # list2 = [2, 3, -6, 7, -6, 7]
 # p largest_contiguous_subsum2(list2) # => 8 (from [7, -6, 7])
 
 # list3 = [5, 3, -7]
 # p largest_contiguous_subsum2(list3) # => 8
+
+# list4 = [1, 2, -4, 4, -1, 3]
+# p largest_contiguous_subsum2(list4) # => 6
+
+# list5 = [5, 3, 7]
+# p largest_contiguous_subsum2(list5) # => 15
