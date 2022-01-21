@@ -18,5 +18,15 @@ class Array
         eq_zero
     end
 
+    
 end
 
+def my_transpose(arr)
+    transpose_arr = Array.new(arr.length) {Array.new}
+    arr.each do |sub|
+        (0...arr.length).each do |i|
+            transpose_arr[i] << sub[i]
+        end
+    end
+    transpose_arr
+end
