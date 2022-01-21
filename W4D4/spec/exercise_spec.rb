@@ -38,3 +38,14 @@ describe "#my_transpose" do
         expect(my_transpose(rows)).to eq(cols)
     end
 end
+
+describe "#stock_picker" do
+    it "returns the most profitable pair of days" do
+        expect(stock_picker([1, 10, 5, 0, 50, 30, 80])).to eq([3,6])
+    end
+
+    it "returns array with smaller index before bigger index" do
+        a = [3,6]
+        expect(a[0]).to be < a[1]
+    end
+end

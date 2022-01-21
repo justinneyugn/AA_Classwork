@@ -1,3 +1,4 @@
+# require "byebug"
 class Array
 
     def uniq
@@ -30,3 +31,23 @@ def my_transpose(arr)
     end
     transpose_arr
 end
+
+
+def stock_picker(arr)
+    # debugger
+    smallest = arr.min
+    smallest_idx = 0
+    largest = arr.max
+    largest_idx = 0
+
+    arr.each_with_index do |ele, i|
+        if ele == smallest
+            smallest_idx = i
+        elsif ele == largest && i > smallest_idx
+            largest_idx = i
+        end
+    end
+    [smallest_idx, largest_idx]
+end
+
+# p  stock_picker([1, 10, 5, 0, 50, 30, 80])
