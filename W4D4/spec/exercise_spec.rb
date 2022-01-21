@@ -49,3 +49,19 @@ describe "#stock_picker" do
         expect(a[0]).to be < a[1]
     end
 end
+
+#if chosen array is NOT empty, then need to compare
+#element shifted out has to be smaller than the first element of array chosen
+
+describe Game do 
+    describe "#move" do 
+        it "shifts first element from one array and unshifts onto another" do
+            context "if chosen array is not empty, compare shifted element with chosen array's first element" do 
+                # if first_arr chosen is 1, 
+                # and second array chosen is 3,
+                # element = first_arr.shift
+                # unshift only if element < 3rd[0]
+            end
+        end
+    end
+end

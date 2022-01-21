@@ -51,3 +51,85 @@ def stock_picker(arr)
 end
 
 # p  stock_picker([1, 10, 5, 0, 50, 30, 80])
+
+class Game
+
+    def initialize
+        @array_one = [1,2,3,4,5]
+        @array_two = []
+        @array_three = []
+        @won = false
+    end
+
+    def move
+        valid = false
+        i = 0
+        while !won? && i != 0
+            while !valid
+                valid = true
+                p "enter which stack you want to pick from"
+                start_stack = gets.chomp
+                case start_stack
+                when "1"
+                    if !@array_one.empty?
+                        ele = @array_one.shift 
+                    else
+                        valid = false
+                    end
+                when "2"
+                    if !@array_two.empty?
+                        ele = @array_two.shift
+                    else
+                        valid = false
+                    end
+                when "3"
+                    if !@array_three.empty?
+                        ele = @array_three.shift
+                    else
+                        valid = false
+                    end
+                else
+                    p "invalid choice"
+                    valid = false
+                end
+            end
+            valid = false
+            while !valid
+                valid = true
+                p "enter which stack you want to place"
+                end_stack = gets.chomp
+                case end_stack
+                when "1"
+                    if (!@array_one.empty? && ele < @array_one[0]) || @array_one.empty?
+                        @array_one.unshift(ele)
+                    else
+                        valid = false
+                    end
+                when "2"
+                    if (!@array_two.empty? && ele < @array_two[0]) || @array_two.empty?
+                        @array_two.unshift(ele)
+                    else
+                        valid = false
+                    end
+                when "3"
+                    if (!@array_three.empty? && ele < @array_three[0]) || @array_three.empty?
+                        @array_three.unshift(ele)
+                    else
+                        valid = false
+                    end
+                else
+                    p "invalid choice"
+                    valid = false
+                end
+            end
+            i += 1
+        end
+    end
+
+    def won?
+        arr = [@array_one, @array_two, @array_three]
+        return true if arr.count{ |stack| stack.empty? } == 2
+        false
+    end
+
+end
