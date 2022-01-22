@@ -1,0 +1,3 @@
+class MyQueue
+
+end
