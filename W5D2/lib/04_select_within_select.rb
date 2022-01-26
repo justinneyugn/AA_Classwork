@@ -118,6 +118,7 @@ def population_constraint
   SQL
 end
 
+# did not finish
 def sparse_continents
   # Find every country that belongs to a continent where each country's
   # population is less than 25,000,000. Show name, continent and

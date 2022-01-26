@@ -74,20 +74,60 @@ end
 def films_and_stars_from_sixty_two
   # List the title and leading star of every 1962 film.
   execute(<<-SQL)
+    SELECT 
+      title, actors.name
+    FROM
+      movies
+    JOIN 
+      castings ON movies.id = castings.movie_id
+    JOIN
+      actors ON castings.actor_id = actors.id
+    WHERE castings.ord = 1 AND yr = '1962'
   SQL
 end
 
+# did not finish
 def travoltas_busiest_years
   # Which were the busiest years for 'John Travolta'? Show the year and the
   # number of movies he made for any year in which he made at least 2 movies.
   execute(<<-SQL)
+    SELECT
+      yr
+    FROM
+      movies
+    JOIN 
+      castings ON movies.id = castings.movie_id
+    JOIN
+      actors ON castings.movie_id = actors.id
+    WHERE 
+      actors.name = 'John Travolta' 
   SQL
 end
 
+# did not finish
 def andrews_films_and_leads
   # List the film title and the leading actor for all of the films 'Julie
   # Andrews' played in.
   execute(<<-SQL)
+    SELECT
+      title, actors.name
+    FROM
+      movies
+    JOIN 
+      castings ON movies.id = castings.movie_id
+    JOIN
+      actors ON castings.movie_id = actors.id
+    WHERE 
+      movies.id = (
+        SELECT
+          movie_id
+        FROM
+          castings
+        JOIN
+          actors ON castings.movie_id = actors.id
+        WHERE
+          actors.name = 'Julie Andrews'
+      )
   SQL
 end
 
