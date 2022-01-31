@@ -42,5 +42,12 @@ end
 def most_supportive
   # Find the two actors with the largest number of non-starring roles.
   # Show each actor's id, name and number of supporting roles.
-
+  Actor
+  .select(:id, :name, "COUNT(*) AS roles")
+  .joins(:movies)
+  .where.not(castings: {ord: 1})
+  .group(:id, :name)
+  .order("COUNT(*) DESC")
+  .limit(2)
+  .order(:name)
 end
