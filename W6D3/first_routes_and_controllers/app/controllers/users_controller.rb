@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
     def index 
-        users = User.all
-        render json: :users
+        # users = User.all
+        # render json: users
+        render plain: "I'm in the Index Action. Success"
     end
 
     def show
-        user = User.find(params[:id])
-        render json: user
+        # user = User.find(params[:id])
+        # render json: user
+        render json: params
     end
 
     def edit
@@ -19,12 +21,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(user_params)
-        if user.save
-            render json: user
-        else
-            render json: user.errors.full_messages, status: 422
-        end
+        # user = User.new(user_params)
+        # if user.save
+        #     render json: user
+        # else
+        #     render json: user.errors.full_messages, status: 422
+        # end
+        render json: params
     end
 
     def update
