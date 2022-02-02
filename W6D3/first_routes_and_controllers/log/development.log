@@ -2,3 +2,10 @@
   ↳ bin/rails:9
   [1m[35m (3663.0ms)[0m  [1m[35mCREATE DATABASE "first_routes_and_controllers_test" ENCODING = 'unicode'[0m
   ↳ bin/rails:9
+Started GET "/" for ::1 at 2022-02-02 14:43:45 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (27.4ms)
+Completed 200 OK in 146ms (Views: 78.6ms | ActiveRecord: 0.0ms)
+
+
