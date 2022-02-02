@@ -5,7 +5,18 @@ require 'active_support/inflector'
 
 class SQLObject
   def self.columns
-    
+    new_arr = []
+
+    arr = DBConnection.execute2(<<-SQL)
+      SELECT
+        *
+      FROM
+        "#{self}s";
+    SQL
+    arr[0].each do |word|
+      new_arr << word.to_sym
+    end
+    new_arr
   end
 
   def self.finalize!
