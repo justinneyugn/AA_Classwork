@@ -22,6 +22,23 @@ class SQLObject
   end
 
   def self.finalize!
+    self.columns.each do |column|
+      define_method(column) do |arg|
+        if !column.is_a?(Hash)
+          self.instance_variable_get("@#{column}")
+        else
+          self.instance_variable_get(column[arg])
+        end
+      end
+      new_name = "#{column}="
+      define_method(new_name) do |arg|
+        if !column.is_a?(Hash)
+          self.instance_variable_set("@#{column}", arg)
+        else
+          self.instance_variable_set(column[arg], arg)
+        end
+      end
+    end
   end
 
   def self.table_name=(table_name)
