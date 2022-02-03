@@ -12,4 +12,8 @@ class Artwork < ApplicationRecord
     primary_key: :id,
     foreign_key: :artwork_id,
     class_name: :ArtworkShare
+
+  has_many :shared_viewers,
+    through: :shared_artworks,
+    source: :viewer
 end
