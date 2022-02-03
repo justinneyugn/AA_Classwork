@@ -1538,3 +1538,5 @@ Migrating to ChangeArtworkSharesIndices (20220203191237)
   ↳ bin/rails:9
   [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT  "artworks".* FROM "artworks" LIMIT $1[0m  [["LIMIT", 11]]
   ↳ bin/rails:9
+  [1m[35m (18.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/shhmabbey/.rbenv/versions/2.5.1/bin/annotate:23

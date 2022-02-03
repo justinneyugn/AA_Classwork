@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: artwork_shares
+#
+#  id         :bigint           not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  artwork_id :integer
+#  viewer_id  :integer
+#
 class ArtworkShare < ApplicationRecord
     validates :artwork_id, presence: true
     validates :viewer_id, presence: true
@@ -11,6 +21,5 @@ class ArtworkShare < ApplicationRecord
         primary_key: :id,
         foreign_key: :viewer_id,
         class_name: :User
-
     
 end
