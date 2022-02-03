@@ -3,19 +3,24 @@
 #
 ActiveRecord::Base.transaction do
     User.destroy_all
-    user1 = User.create!(name: 'CJ')
-    user2 = User.create!(name: 'Flarnie')
-    user3 = User.create!(name: 'Jeff')
-    user4 = User.create!(name: 'Georges St. Pierre')
-    user5 = User.create!(name: 'Ned')
+    ActiveRecord::Base.connection.reset_pk_sequence!('users')
+    user1 = User.create!(username: 'CJ')
+    user2 = User.create!(username: 'Flarnie')
+    user3 = User.create!(username: 'Jeff')
+    user4 = User.create!(username: 'Georges St. Pierre')
+    user5 = User.create!(username: 'Ned')
 
-    Course.destroy_all
-    course1 = Course.create!(name: 'Ruby 101', instructor_id: user5.id)
-    course2 = Course.create!(name: 'Ruby 102', instructor_id: user5.id, prereq_id: course1.id)
+    Artwork.destroy_all
+    ActiveRecord::Base.connection.reset_pk_sequence!('artworks')
+    artwork1 = Artwork.create!(title: 'Ruby Magic', artist_id: user5.id, image_url: 'https://i.guim.co.uk/img/media/c26ced2bb6cbf1e770623712c0b02e1a5b024edd/0_0_4728_2837/master/4728.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=d6f720e62a15193ebd4fc0a6cd9ecaff
+        ' )
+    artwork2 = Artwork.create!(title: 'Ruby, cats and lasers', artist_id: user5.id, image_url: 'https://i.guim.co.uk/imgg/media/c26ced2bb6cbf1e770623712c0b02e1a5b024edd/0_0_4728_2837/master/4728.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=d6f720e62a15193ebd4fc0a6cd9ecaff
+        ')
 
-    Enrollment.destroy_all
-    Enrollment.create!(student_id: user3.id, course_id: course1.id)
-    Enrollment.create!(student_id: user4.id, course_id: course1.id)
-    Enrollment.create!(student_id: user1.id, course_id: course2.id)
-    Enrollment.create!(student_id: user2.id, course_id: course2.id)
+    ArtworkShare.destroy_all
+    ActiveRecord::Base.connection.reset_pk_sequence!('artwork_shares')
+    ArtworkShare.create!(viewer_id: user3.id, artwork_id: artwork1.id)
+    ArtworkShare.create!(viewer_id: user4.id, artwork_id: artwork1.id)
+    ArtworkShare.create!(viewer_id: user1.id, artwork_id: artwork2.id)
+    ArtworkShare.create!(viewer_id: user2.id, artwork_id: artwork2.id)
 end
