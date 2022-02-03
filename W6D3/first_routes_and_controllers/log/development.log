@@ -167,3 +167,283 @@ Processing by UsersController#show as */*
 Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/" for ::1 at 2022-02-02 16:22:07 -0800
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh"}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 94ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/7" for ::1 at 2022-02-02 16:22:43 -0800
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh", "id"=>"7"}
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/7" for ::1 at 2022-02-02 16:23:29 -0800
+Processing by UsersController#show as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh", "video"=>{"user_id"=>"66"}, "id"=>"7"}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2022-02-02 16:24:02 -0800
+Processing by UsersController#create as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh", "video"=>{"user_id"=>"66"}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (586.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (33.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (34.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220203002516)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (73.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220203002516_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (4.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220203002516"]]
+  ↳ bin/rails:9
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (18.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (3.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-03 00:26:56.659059"], ["updated_at", "2022-02-03 00:26:56.659059"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (15.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (22.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220203002516)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (55.9ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20220203002516"]]
+  ↳ bin/rails:9
+  [1m[35m (57.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20220203002516)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (196.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220203002516_create_users.rb:3
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_name" ON "users"  ("name")[0m
+  ↳ db/migrate/20220203002516_create_users.rb:3
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20220203002516_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220203002516"]]
+  ↳ bin/rails:9
+  [1m[35m (24.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (39.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2711202859307440470)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (36.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Justin"], ["email", "coool_guy989@gmail.com"], ["created_at", "2022-02-03 00:34:44.300520"], ["updated_at", "2022-02-03 00:34:44.300520"]]
+  [1m[35m (14.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Abbey"], ["email", "alsocool@gmail.com"], ["created_at", "2022-02-03 00:35:57.512826"], ["updated_at", "2022-02-03 00:35:57.512826"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2022-02-02 16:36:57 -0800
+  [1m[35m (29.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/shhmabbey/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh", "video"=>{"user_id"=>"66"}}
+  Rendering text template
+  Rendered text template (0.0ms)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-02-02 16:37:54 -0800
+Processing by UsersController#index as */*
+  Parameters: {"users"=>{"a_key"=>"'another value", "a_second_key"=>"pizza", "inner_inner_hash"=>{"key"=>"value"}}, "something_else"=>"aaahhhhh", "video"=>{"user_id"=>"66"}}
+  [1m[36mUser Load (93.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 165ms (Views: 47.3ms | ActiveRecord: 106.9ms)
+
+
+Started POST "/users" for ::1 at 2022-02-02 16:40:51 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2022-02-02 16:41:05 -0800
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/users" for ::1 at 2022-02-02 16:41:54 -0800
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 71ms (Views: 38.4ms | ActiveRecord: 23.0ms)
+
+
+Started POST "/users" for ::1 at 2022-02-02 16:41:59 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:42:56 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:43:24 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:43:44 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:44:10 -0800
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:46:48 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Droggo", "email"=>"coolcat@gmail.com"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25
+  [1m[36mUser Create (12.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Droggo"], ["email", "coolcat@gmail.com"], ["created_at", "2022-02-03 00:46:49.057814"], ["updated_at", "2022-02-03 00:46:49.057814"]]
+  ↳ app/controllers/users_controller.rb:25
+  [1m[35m (32.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25
+Completed 200 OK in 101ms (Views: 1.5ms | ActiveRecord: 57.9ms)
+
+
+Started POST "/users" for ::1 at 2022-02-02 16:47:19 -0800
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Droggo", "email"=>"coolcat@gmail.com"}
+Completed 400 Bad Request in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:54:in `user_params'
+app/controllers/users_controller.rb:24:in `create'
+Started POST "/users" for ::1 at 2022-02-02 16:47:38 -0800
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"username"=>"Droggo", "email"=>"coolcat@gmail.com"}}
+Unpermitted parameter: :username
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["email", "coolcat@gmail.com"], ["created_at", "2022-02-03 00:47:38.074708"], ["updated_at", "2022-02-03 00:47:38.074708"]]
+  ↳ app/controllers/users_controller.rb:25
+  [1m[35m (2.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:25
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 24.1ms)
+
+
+  
+ActiveRecord::NotNullViolation (PG::NotNullViolation: ERROR:  null value in column "name" violates not-null constraint
+DETAIL:  Failing row contains (4, null, coolcat@gmail.com, 2022-02-03 00:47:38.074708, 2022-02-03 00:47:38.074708).
+: INSERT INTO "users" ("email", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"):
+  
+app/controllers/users_controller.rb:25:in `create'
+Started GET "/users" for ::1 at 2022-02-02 16:47:49 -0800
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Droggo", "email"=>"coolcat@gmail.com"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 15ms (Views: 9.6ms | ActiveRecord: 2.7ms)
+
+
+Started DELETE "/users/3" for ::1 at 2022-02-02 16:48:57 -0800
+Processing by UsersController#destroy as */*
+  Parameters: {"user"=>{"username"=>"Droggo", "email"=>"coolcat@gmail.com"}, "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:44
+  [1m[36mUser Destroy (1.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:44
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:44
+Completed 200 OK in 41ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/" for ::1 at 2022-02-02 16:49:12 -0800
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{"username"=>"Droggo", "email"=>"coolcat@gmail.com"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:4
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+

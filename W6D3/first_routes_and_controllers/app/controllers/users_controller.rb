@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
     def index 
-        # users = User.all
-        # render json: users
-        render plain: "I'm in the Index Action. Success"
+        users = User.all
+        render json: users
+        # render plain: "I'm in the Index Action. Success"
     end
 
     def show
@@ -21,13 +21,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        # user = User.new(user_params)
-        # if user.save
-        #     render json: user
-        # else
-        #     render json: user.errors.full_messages, status: 422
-        # end
-        render json: params
+        user = User.new(user_params)
+        if user.save
+            render json: user
+        else
+            render json: user.errors.full_messages, status: 422
+        end
+        # render json: params
     end
 
     def update
@@ -51,6 +51,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :age, :email, :coding_affiliation)
+        params.require(:user).permit(:name, :email)
     end
 end
