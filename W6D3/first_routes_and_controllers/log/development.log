@@ -1736,3 +1736,129 @@ Completed 404 Not Found in 110ms (ActiveRecord: 24.5ms)
 ActiveRecord::RecordNotFound (Couldn't find Artwork with 'id'=5):
   
 app/controllers/artworks_controller.rb:3:in `index'
+Started GET "/users/5/artworks" for ::1 at 2022-02-03 16:12:43 -0800
+  [1m[35m (4.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/justinnguyen/.rbenv/versions/2.5.8/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"5"}
+  [1m[36mArtwork Load (7.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."artist_id" = $1[0m  [["artist_id", 5]]
+  ↳ app/controllers/artworks_controller.rb:5
+Completed 200 OK in 74ms (Views: 30.3ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/users/5/artworks" for ::1 at 2022-02-03 16:19:26 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"5"}
+  [1m[36mArtwork Load (1.2ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" IS NULL[0m
+  ↳ app/controllers/artworks_controller.rb:5
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/users/5/artworks" for ::1 at 2022-02-03 16:20:56 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"5"}
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" WHERE "artworks"."id" IS NULL[0m
+  ↳ app/controllers/artworks_controller.rb:5
+Completed 200 OK in 17ms (Views: 0.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/users/5/artworks" for ::1 at 2022-02-03 16:38:39 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"5"}
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (1.4ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 5]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 108ms (Views: 13.6ms | ActiveRecord: 22.5ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:39:33 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (2.0ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 18ms (Views: 9.7ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:40:10 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"fav_color"=>"red", "user_id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (1.1ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:40:49 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (0.8ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:41:07 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (0.6ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 16ms (Views: 2.1ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:45:06 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/artworks_controller.rb:4
+  [1m[36mArtwork Load (0.5ms)[0m  [1m[34mSELECT "artworks".* FROM "artworks" INNER JOIN "artwork_shares" ON "artworks"."id" = "artwork_shares"."artwork_id" WHERE "artwork_shares"."viewer_id" = $1[0m  [["viewer_id", 3]]
+  ↳ app/controllers/artworks_controller.rb:7
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:48:14 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.6ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/artworks_controller.rb:4:in `index'
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:49:39 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 6.6ms)
+
+
+  
+NoMethodError (undefined method `shared_artworks' for #<User::ActiveRecord_Relation:0x00007f8a09e17d88>):
+  
+app/controllers/artworks_controller.rb:4:in `index'
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:49:48 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `shared_artworks' for #<User::ActiveRecord_Relation:0x00007f8a0863e540>):
+  
+app/controllers/artworks_controller.rb:4:in `index'
+Started GET "/users/3/artworks" for ::1 at 2022-02-03 16:50:18 -0800
+Processing by ArtworksController#index as */*
+  Parameters: {"user_id"=>"3"}
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.3ms)
+
+
+  
+LoadError (Unable to autoload constant Artwork_Share, expected /Users/justinnguyen/Desktop/AppAcademy/AA_Classwork/W6D3/first_routes_and_controllers/app/models/artwork_share.rb to define it):
+  
+app/controllers/artworks_controller.rb:4:in `index'

@@ -20,8 +20,8 @@ ActiveRecord::Base.transaction do
 
     ArtworkShare.destroy_all
     ActiveRecord::Base.connection.reset_pk_sequence!('artwork_shares')
-    ArtworkShare.create!(viewer_id: user3.id, artwork_id: artwork1.id)
-    ArtworkShare.create!(viewer_id: user4.id, artwork_id: artwork1.id)
+    # ArtworkShare.create!(viewer_id: user3.id, artwork_id: artwork1.id)
+    ArtworkShare.create!(viewer_id: user3.id, artwork_id: artwork2.id)
     ArtworkShare.create!(viewer_id: user1.id, artwork_id: artwork2.id)
     ArtworkShare.create!(viewer_id: user2.id, artwork_id: artwork2.id)
 end

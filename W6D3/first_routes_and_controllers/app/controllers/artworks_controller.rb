@@ -1,14 +1,27 @@
 class ArtworksController < ApplicationController
   def index 
-    artworks = Artwork.find(params[:user_id])
-  
-    render json: artworks.artworks
+    artworks = Artwork.where(artist_id: params[:user_id])
+    user = Artwork_Share.where(viewer_id: params[:user_id])
+    # artworks_shared = Artwork.where(id: params[:viewer_id])
+
+    render json: user
     # , user.shared_artworks
-    # render plain: "I'm in the Index Action. Success"
   end
 
-  # protected
-  # def artwork_params
-  #   self.params[:artworks].permit(:artist_id)
-  # end
 end
+
+
+
+# class AppointmentSerializer
+#   include FastJsonapi::ObjectSerializer
+#   belongs_to :doctor
+#   belongs_to :patient
+# end
+
+# def show
+#   appointment = Appointment.find(params[:id])
+#   options = {
+#     include: [:doctor, :patient]
+#   }
+#   render json: AppointmentSerializer.new(appointment, options)
+# end
