@@ -1,3 +1,5 @@
+require 'action_view'
+
 class Cat < ApplicationRecord 
     # i think we need require 'date'
     include ActionView::Helpers::DateHelper
