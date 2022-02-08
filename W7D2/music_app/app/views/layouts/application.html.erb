@@ -7,19 +7,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      header {
+        display: flex;
+        justify-content: center;
+        font-size: 100px;
+      }
+      #login {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 25px;
+      }
+      #signup {
+        display: flex;
+        justify-content: flex-end;
+        font-size: 25px;
+      }
+      a {
+        color: darkred;
+        background-color: lightgreen;
+        border-radius: 1px solid red;
+      }
+    </style>
   </head>
 
   <body>
+    <header style="font-family:papyrus;">Music App</header>
     <% if logged_in? %>
-    <h1>Welcome <%= current_user.username %>!</h1>
+    <h1>Welcome <%= current_user.email %>!</h1>
     <form action="<%= session_url %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
       <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Logout">
     </form>
     <% else %>
-      <a href="<%= new_session_url %>">Log In</a>
-      <a href="<%=new_user_url%>">Sign Up</a>
+      <a href="<%= new_session_url %>" id = "login">Log In</a>
+      <a href="<%=new_user_url%>" id="signup">Sign Up</a>
     <% end %>
     <%= yield %>
     <% if flash[:errors] %>
