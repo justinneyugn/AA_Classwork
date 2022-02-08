@@ -1,0 +1,9 @@
+<h1>All the bands!</h1>
+<a href="<%=new_band_url%>">Add a band</a>
+<ul>
+    <% @bands.each do |band| %>
+        <li>
+            <%= render 'band', band: band, action: :index %>
+        </li>
+    <% end %>
+</ul>

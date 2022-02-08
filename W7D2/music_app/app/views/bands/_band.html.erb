@@ -1,0 +1,16 @@
+<ul>
+    <li>name: <%= band.name %></li>
+    <li><%= link_to 'Edit Band', edit_band_url(band) %></li>
+    
+    <form action="<%= band_url(band) %>" method="POST">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"/>
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete Band</button>
+    </form>
+</ul>
+
+<% if action == :show %>
+    <li><a href=<%= bands_url %>>Band Index Page</a></li>
+<% else %>
+    <a href=<%= band_url(band) %>>Band Show Page</a>
+<% end %>
