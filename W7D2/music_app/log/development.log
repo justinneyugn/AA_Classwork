@@ -989,3 +989,62 @@ Migrating to CreateAlbums (20220208231949)
   ↳ bin/rails:9
   [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ /Users/justinnguyen/.rbenv/versions/2.5.8/bin/annotate:23
+Started GET "/users/new" for ::1 at 2022-02-08 16:39:41 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/justinnguyen/.rbenv/versions/2.5.8/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 303ms (Views: 271.9ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/bands" for ::1 at 2022-02-08 16:39:47 -0800
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (1.0ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:4
+  Rendered bands/_band.html.erb (1.7ms)
+  Rendered bands/_band.html.erb (0.6ms)
+  Rendered bands/_band.html.erb (0.5ms)
+  Rendered bands/index.html.erb within layouts/application (34.3ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 82ms (Views: 60.7ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/bands/2" for ::1 at 2022-02-08 16:45:40 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/_band.html.erb (146.8ms)
+  Rendered bands/show.html.erb within layouts/application (150.6ms)
+Completed 500 Internal Server Error in 162ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `new_band_album' for #<#<Class:0x00007fcf1dd991a0>:0x00007fcf24a8dba8>
+Did you mean?  new_band_album_url:
+  app/views/bands/_band.html.erb:10:in `_app_views_bands__band_html_erb___26786741632765281_70263825050900'
+  app/views/bands/show.html.erb:2:in `_app_views_bands_show_html_erb__2588464098043983518_70263824990600'
+  app/controllers/bands_controller.rb:30:in `show'
+
+Started POST "/__better_errors/ac9ce6c9b48575bf/variables" for ::1 at 2022-02-08 16:45:40 -0800
+Started GET "/bands/2" for ::1 at 2022-02-08 16:45:56 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/_band.html.erb (1.2ms)
+  Rendered bands/show.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 1.1ms)
+
+

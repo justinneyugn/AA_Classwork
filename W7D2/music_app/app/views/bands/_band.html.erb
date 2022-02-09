@@ -7,6 +7,20 @@
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete Band</button>
     </form>
+    <form action="<%= new_band_album_url(band) %>" method="GET">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"/>
+        <label> Title of Album:
+        <input type="text" name="album[title]">
+        </label>
+        <br>
+        <label> Year of Album:
+        <input type="text" name="album[year]">
+        </label>
+        <br>
+        <label> Is it a studio album?:
+        <input type="text" name="album[studio?]">
+        </label>
+    </form>
 </ul>
 
 <% if action == :show %>

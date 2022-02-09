@@ -7,3 +7,4 @@ Rails.application.routes.draw do
   end
   resources :albums, only: [:create, :edit, :show, :update, :destroy]
 end
+
