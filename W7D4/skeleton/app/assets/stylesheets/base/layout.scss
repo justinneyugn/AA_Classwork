@@ -6,26 +6,29 @@ html {
 }
 
 body {
-	// ...
+	width: 80%;
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 12px;
 }
 
 button {
-	// background-color:
+	background-color: cornflowerblue;
 	// border-color:
-	// color:
-	// font-weight:
-	// padding:
-	// border-radius:
+	color: white;
+	font-weight: bold;
+	padding: 5px;
+	border-radius: 4px;
 	// transition:
 	// font-family:
-	// text-transform:
-	// font-size:
+	text-transform: uppercase;
+	font-size: larger;
 	// text-align:
 }
 
 button:hover {
-	// background-color:
-	// border-color:
+	background-color: rgb(12, 64, 160);
+	border-color:  rgb(3, 32, 87);
 }
 
 /*

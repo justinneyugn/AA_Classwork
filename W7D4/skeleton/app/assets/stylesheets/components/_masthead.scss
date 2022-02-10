@@ -26,8 +26,16 @@
 
 	ul {
 		display: flex;
+		flex-direction: row;
 	}
+
+
 }
+
+ ul li {
+	 margin: 0 10px 0 10px;
+	 
+ }
 
 .logo {
 	max-width: 400px;
@@ -43,6 +51,7 @@
 
 	li {
 		margin-left: 10px;
+		padding-right: 4px;
 		border-right: 1px solid $light-gray;
 	}
 
