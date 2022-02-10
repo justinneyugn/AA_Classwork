@@ -7,7 +7,7 @@ body {
 
 .header {
     background-color: rgb(197, 122, 122);
-    font-size: 50px;
+    font-size: 100px;
     display: flex;
     justify-content: center;
 }
@@ -15,11 +15,13 @@ body {
 .header-nav {
     color: rgb(66, 197, 66);
     cursor: pointer;
+    left: auto;
+    right: auto;
 }
 
 .header-logo {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 50px;
     display: flex;
     justify-content: left;
     border: red;

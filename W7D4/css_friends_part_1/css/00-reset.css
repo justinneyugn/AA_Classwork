@@ -5,17 +5,25 @@ ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
-    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    vertical-align: inherit;
+    box-sizing: inherit;
+    background: transparent;
 
 }
 
 ul {
-    box-sizing: inherit;
     list-style-type: none;
 }
 
 img {
-    box-sizing: inherit;
     display: block;
     width: 100%;
     height: auto;
@@ -27,12 +35,11 @@ input[type="text"],
 input[type="submit"],
 textarea,
 button {
-    box-sizing: inherit;
     -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 button,
 input[type="submit"] {
-    box-sizing: inherit;
     cursor: pointer;
 }
