@@ -1,2 +1,43 @@
 /* PHASE 1: Header */
 
+body {
+    font-family: 'Syne Tactile', cursive;
+    font-weight: normal;
+}
+
+.header {
+    background-color: rgb(197, 122, 122);
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-nav {
+    color: rgb(66, 197, 66);
+    cursor: pointer;
+}
+
+.header-logo {
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    justify-content: left;
+    border: red;
+    padding: 20px;
+}
+
+.header-list {
+    display: none;
+    position: absolute;
+    border: 1px solid #000;
+    padding: 20px;
+    color: gray
+}
+
+.header-nav:hover .header-list {
+    display: block;
+}
+
+li:hover {
+    background-color: gray;
+}
