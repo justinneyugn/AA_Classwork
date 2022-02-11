@@ -1,7 +1,7 @@
 .main-nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px; 
+  padding: 15px 15px 30px 15px; 
 }
 
 .left-nav > ul,
@@ -34,6 +34,7 @@
 
     > li:last-of-type {
       font-size: 20px;
+      position: relative;
     }
   }
   
