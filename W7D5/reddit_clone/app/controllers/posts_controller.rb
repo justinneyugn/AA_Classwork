@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :require_logged_in, only: [:new, :create, :edit, :update, :destroy]
+
     def new
         @post = Post.new
         render :new
@@ -26,17 +28,21 @@ class PostsController < ApplicationController
     end
 
     def edit 
-        @post = Post.find(params[:id])
-        render :edit
+        if params[:author_id] == current_user.id
+            @post = Post.find(params[:id])
+            render :edit
+        end
     end
 
     def update
-        @post = Post.find(params[:id])
-        if @post.update(post_params)
-            redirect_to post_url(@post)
-        else
-            flash[:errors] = @post.errors.full_messages
-            render :show
+        if params[:author_id] == current_user.id
+            @post = Post.find(params[:id])
+            if @post.update(post_params)
+                redirect_to post_url(@post)
+            else
+                flash[:errors] = @post.errors.full_messages
+                render :show
+            end
         end
     end
 
@@ -52,6 +58,6 @@ class PostsController < ApplicationController
 
     private 
     def post_params
-        params.require(:sub).permit(:title, :url, :content, :sub_id, :author_id)
+        params.require(:sub).permit(:title, :url, :content, sub_id: [], :author_id)
     end
 end
