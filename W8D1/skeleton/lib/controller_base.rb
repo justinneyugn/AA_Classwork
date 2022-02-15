@@ -18,7 +18,6 @@ class ControllerBase
       @already_built_response = false
     else
       @already_built_response = true
-      raise "You suck"
     end
     @already_built_response
   end
@@ -28,6 +27,8 @@ class ControllerBase
     if !already_built_response?
       @res.status = 302
       @res["Location"] = url
+    else
+      raise "You suck"
     end
     @res
   end
@@ -39,6 +40,8 @@ class ControllerBase
     if !already_built_response?
       @res.write(content)
       @res['Content-Type'] = content_type
+    else
+      raise "You suck"
     end
     @res
   end
