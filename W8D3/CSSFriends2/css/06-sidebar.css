@@ -1,0 +1,31 @@
+/* PHASE 0: Sidebar */
+
+.profile-picture{
+  display: block;
+  margin-top: -111px;
+  position: relative;
+}
+
+.profile-info{
+  color: red;
+}
+
+
+.profile-nav :first-child, .profile-nav :last-child {
+  border-top: 2px black solid;
+  border-bottom: 2px black solid;
+}
+
+/* .profile-nav :last-child {
+  border-top: 2px black solid;
+  border-bottom: 2px black solid;
+} */
+
+.profile-nav :nth-child(2) {
+  border-bottom: 2px black solid;
+}
+
+#Name{
+  font-size: 35px;
+  font-weight: 1000;
+}
