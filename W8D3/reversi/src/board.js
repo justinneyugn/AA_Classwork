@@ -115,8 +115,18 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
  * taking the position will result in some pieces of the opposite
  * color being flipped.
  */
-Board.prototype.validMove = function (pos, color) {
-};
+// Board.prototype.validMove = function (pos, color) {
+//   if (this.isOccupied(pos)) {
+//     return false;
+//   } 
+
+//   this.DIRS.forEach(ele => {
+//     possibleFlips = this._positionsToFlip(pos, color, ele, piecesToFlip);
+//     if (!possibeFlips) {
+//       return false;
+//     }
+//   }
+// };
 
 /**
  * Adds a new piece of the given color to the given position, flipping the
@@ -147,6 +157,12 @@ Board.prototype.hasMove = function (color) {
  * the black player are out of moves.
  */
 Board.prototype.isOver = function () {
+  if (!this.grid) {
+    return false;
+  } else if (!this.grid.includes(null)) {
+    return true;
+  } 
+  return true;
 };
 
 
