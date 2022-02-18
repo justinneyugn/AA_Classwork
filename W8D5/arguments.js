@@ -118,8 +118,7 @@ Function.prototype.curry1 = function(numArgs) {
   return _curriedFunction;
 }
 
-function sum(arr){
-  console.log(arr);
+function sum(...arr){
   let total = 0;
   for (let i = 0; i < arr.length; i++) {
     total += arr[i];
@@ -134,8 +133,8 @@ function sum(arr){
 // const curriedVersionOfSum5 = curriedVersionOfSum4(7);
 // console.log(curriedVersionOfSum); // => 56
 
-const testSum = sum.curry1(4);
-console.log(testSum(5)(30)(20)(1)); // => 56
+// const testSum = sum.curry2(4);
+// console.log(testSum(5)(30)(20)(1)); // => 56
 
 Function.prototype.curry2 = function(numArgs) {
   let arr = [];
@@ -150,3 +149,6 @@ Function.prototype.curry2 = function(numArgs) {
   }
   return _curriedFunction;
 }
+
+const testSum = sum.curry2(4);
+console.log(testSum(5)(30)(20)(1)); // => 56
