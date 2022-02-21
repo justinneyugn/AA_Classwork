@@ -1,1 +1,24 @@
-console.log("Webpack is working!")
+// entry file
+// like game class, brings every piece together
+// webpack joins all js src files in main.js
+
+const MovingObject = require('./moving_object.js');
+
+window.MovingObject = MovingObject;
+
+window.addEventListener('DOMContentLoaded', (event) => {
+    const canvas = document.getElementById("game-canvas");
+    const ctx = canvas.getContext('2d');
+
+    window.ctx = ctx;
+});
+
+//test obj
+const mo = new MovingObject({
+    pos: [30, 30],
+    vel: [10, 10],
+    radius: 100,
+    color: "red"
+});
+
+window.mo = mo;
