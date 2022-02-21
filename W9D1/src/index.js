@@ -3,6 +3,8 @@
 // webpack joins all js src files in main.js
 
 const MovingObject = require('./moving_object.js');
+const UtilsFunctions = require('./utils.js');
+const Asteroid = require('./asteroid.js');
 
 window.MovingObject = MovingObject;
 
@@ -11,6 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const ctx = canvas.getContext('2d');
 
     window.ctx = ctx;
+    window.Asteroid = Asteroid;
 });
 
 //test obj

@@ -11,7 +11,7 @@ MovingObject.prototype.draw = function(ctx) {
     ctx.strokeStyle = this.color;
     ctx.stroke();
     ctx.fillStyle = this.color;
-    ctx.fill();
+    ctx.fill()
 }
 
 MovingObject.prototype.move = function() {
