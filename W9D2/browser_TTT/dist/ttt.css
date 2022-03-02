@@ -1,0 +1,38 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  list-style-type: none;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+li {
+  padding:40px;
+  border-style: solid;
+  border-color: black;
+  position: relative;
+  background-color: gray;
+
+  /* outline-style: solid; */
+}
+
+li:hover {
+  background-color: yellow;
+}
+
+.x {
+  background-color: red;
+}
+
+.o {
+  background-color: blue;
+}
+
+/* .first {
+  margin-left: 40px;
+}
+
+.third {
+  margin-right: 20px;
+} */
