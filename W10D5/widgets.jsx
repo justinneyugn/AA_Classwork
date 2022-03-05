@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Clock from './frontend/clock';
+import Root from './Root'
 
 document.addEventListener("DOMContentLoaded", () => {
     let root = document.getElementById('root');
-    ReactDOM.render(< Clock />, root);
+    let names = ['Kenneth', 'Justin', 'Paulo', 'Chris', 'Mike'];
+
+    ReactDOM.render(< Root name={names}/>, root);
 })

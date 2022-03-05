@@ -14,23 +14,22 @@ class Clock extends React.Component{
 
     componentDidMount(){
         this.intervalID = setInterval(() => this.tick(), 1000);
-        console.log(this.intervalID)
     }
 
     render(){
         return (
             <h1>
                 Clock
-                <h4>Time:
+                <label>Time:
                     <p>
                         {this.state.date.toLocaleTimeString()}
                     </p>
-                </h4>
-                <h4>Date:
+                </label>
+                <label>Date:
                     <p>
                         {this.state.date.toLocaleDateString()}
                     </p>
-                </h4>
+                </label>
             </h1>
         );
     }
