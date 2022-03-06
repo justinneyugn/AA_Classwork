@@ -20,12 +20,12 @@ class Clock extends React.Component{
         return (
             <h1>
                 Clock
-                <label>Time:
+                <label>Time
                     <p>
                         {this.state.date.toLocaleTimeString()}
                     </p>
                 </label>
-                <label>Date:
+                <label>Date
                     <p>
                         {this.state.date.toLocaleDateString()}
                     </p>
