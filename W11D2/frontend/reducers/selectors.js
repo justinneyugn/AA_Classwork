@@ -6,4 +6,8 @@ const allTodos = (state) => {
     )
 }
 
-export default allTodos;
+const stepsByTodoId = (state, todoId) => {
+    const steps = Object.values(state.steps)
+    return steps.filter(step => step.todoId === todoId)
+}
+export { allTodos, stepsByTodoId } ;

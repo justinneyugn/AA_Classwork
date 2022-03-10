@@ -13,7 +13,7 @@ const initialState = {
         id: 2,
         title: "wash dog",
         body: "with shampoo",
-        done: true
+        done: false
     }
 };
 
