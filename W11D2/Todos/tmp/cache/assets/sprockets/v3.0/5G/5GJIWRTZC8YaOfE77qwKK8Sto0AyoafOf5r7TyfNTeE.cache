@@ -1,0 +1,16 @@
+I")(function() {
+  $.ajax({
+    method: 'GET',
+    url: '/api/todos'
+  }).then(todos((function(_this) {
+    return function() {
+      return console.log(todos);
+    };
+  })(this), error((function(_this) {
+    return function() {
+      return console.log(error);
+    };
+  })(this))));
+
+}).call(this);
+:ET
