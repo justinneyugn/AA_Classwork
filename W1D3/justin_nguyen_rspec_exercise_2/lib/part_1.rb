@@ -23,7 +23,7 @@ def merge(hsh1, hsh2)
     hsh
 end
 
- def censor(sent, arr)
+def censor(sent, arr)
     sent_arr = sent.split(" ")
     vowel = "aeiou"
     new_word = ""
@@ -45,12 +45,12 @@ end
         end
     end
     new_word_arr.join(" ")
- end
+end
 require "byebug"
 
- def power_of_two?(num)
+def power_of_two?(num)
     (0...num).each { |number| return true if 2**number == num }
 
     false
- end
+end
 
