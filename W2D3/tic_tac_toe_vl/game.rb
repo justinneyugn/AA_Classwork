@@ -33,6 +33,6 @@ class Game
             end
         end
 
-        return "DRW"
+        return "DRAW"
     end
 end
